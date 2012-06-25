@@ -10,3 +10,13 @@
 *.lai
 *.la
 *.a
+
+bin
+obj
+*.suo
+*.user
+_ReSharper*
+
+Debug
+Release
+
