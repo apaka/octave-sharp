@@ -1,9 +1,9 @@
 octave-sharp
 ============
 
-Octave runtime for C#. 
+Octave runtime for C#.
 
-Proof of concept ,just a basic glue  there is still much work to be done. 
+Proof of concept ,just a basic glue  there is still much work to be done.
 
 Licence:LGPL 3.0
 
@@ -14,18 +14,18 @@ Octave VS2010 libs in PATH
 
 How things work ,till now
 
-Install Octave VS2010 vrsion for Windows. Git clone. Setup Octave.Core include libs path to Octave directory. Compile an poof.
+Install Octave VS2010 version for Windows. Git clone. Setup Octave.Core include libs path to Octave directory. Compile an poof.
 Add octave bin folder to your main app path and you are ready to go.
 
 ```c#
 dynamic oi = Octave.Runtime.GetIntepreter();
 ```
-Gets the dymanic object which is used to interop with Octave. Any method called against it will be called via Octave e.g.
+Gets the dynamic object which is used to interop with Octave. Any method called against it will be called via Octave e.g.
 
 ```c#
 double rnd= oi.rand()
 ```
-Controling the number of return values.
+Controlling the number of return values.
 
 ```c#
  var matrix = new[,] {{1.2, 1.3, 1.4}, {3.4, 5.6, 7.8},{1.7,9.1,8.4}};
@@ -75,5 +75,6 @@ Supported data types.
     <td>System::Object[,]</td><td>Cell</td>
   </tr>
 </table>
+
 
 
