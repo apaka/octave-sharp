@@ -32,7 +32,7 @@ Controling the number of return values.
 
  var e = oi.eig(matrix,nargout:2);
  double[,] evect=e[0];
- double[,]  eval=e[1];
+ double[,] eval=e[1];
 
 ```
 Supported data types.
@@ -48,13 +48,13 @@ Supported data types.
     <td>System::Float</td>float</td>
   </tr>
   <tr>
-    <td>System::(U)Int64</td>(u)int64</td>
+    <td>System::(U)Int64</td>'(u)int64'</td>
   </tr>
   <tr>
-    <td>System::(U)Int32</td>(u)int32</td>
+    <td>System::(U)Int32</td>'(u)int32'</td>
   </tr>
   <tr>
-    <td>System::(U)Int16</td>(u)int16</td>
+    <td>System::(U)Int16</td>'(u)int16'</td>
   </tr>
   <tr>
     <td>System::SByte</td>int8</td>
