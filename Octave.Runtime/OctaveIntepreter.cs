@@ -48,11 +48,11 @@ namespace Octave
 
            
 
-            result = null;
-           var status= OctaveCore.Octave.Feval(binder.Name, args1, nargout,ref result);
+            
+           var status= OctaveCore.Octave.Feval(binder.Name, args1, nargout,out result);
 
             if (status != OctaveCore.Octave.FevalStatus.OK)
-            {
+            { 
                  throw new OctaveRuntimeException(OctaveCore.Octave.GetLastError());
             }
 

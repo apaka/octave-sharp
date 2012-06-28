@@ -73,6 +73,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>G:\Octave-3.6.2\lib\octave\3.6.2\octinterp.lib;G:\Octave-3.6.2\lib\octave\3.6.2\octave.lib;G:\Octave-3.6.2\lib\octave\3.6.2\cruft.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -82,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Octave.Core.h" />
+    <ClInclude Include="octave_marshall.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
@@ -95,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

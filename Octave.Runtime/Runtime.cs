@@ -10,15 +10,19 @@ namespace Octave
 
         static Runtime()
         {
-           if(OctaveCore.Octave.Main(new[]{
-                            "octave-sharp",
-                            "--no-line-editing",
-                            "--no-history",
-                            "--no-init-file",
-                            "--silent"}))
-           {
-               throw new OctaveRuntimeException("Runtime initalization error");
-           }
+            var args = new[]
+                           {
+                               "octave-sharp",
+                               "--no-line-editing",
+                               "--no-history",
+                               "--no-init-file",
+                               "--silent"
+                           };
+
+            if (!OctaveCore.Octave.Main(args))
+            {
+                throw new OctaveRuntimeException("Runtime initialization error");
+            }
 
             _finalizer = new RuntimeFinalizer();
 

@@ -19,4 +19,6 @@ _ReSharper*
 
 Debug
 Release
+OctaveTest
+*sdf
 
