@@ -45,34 +45,34 @@ Supported data types.
     <td>System::Double</td><td>double</td>
   </tr>
   <tr>
-    <td>System::Float</td>float</td>
+    <td>System::Float</td><td>float</td>
   </tr>
   <tr>
-    <td>System::(U)Int64</td>'(u)int64'</td>
+    <td>System::(U)Int64</td><td>(u)int64</td>
   </tr>
   <tr>
-    <td>System::(U)Int32</td>'(u)int32'</td>
+    <td>System::(U)Int32</td><td>(u)int32</td>
   </tr>
   <tr>
-    <td>System::(U)Int16</td>'(u)int16'</td>
+    <td>System::(U)Int16</td><td>(u)int16</td>
   </tr>
   <tr>
-    <td>System::SByte</td>int8</td>
+    <td>System::SByte</td><td>int8</td>
   </tr>
   <tr>
-    <td>System::Byte</td>uint8</td>
+    <td>System::Byte</td><td>uint8</td>
   </tr>
   <tr>
-    <td>System::Boolean</td>bool</td>
+    <td>System::Boolean</td><td>bool</td>
   </tr>
   <tr>
-    <td>System::String</td>string</td>
+    <td>System::String</td><td>string</td>
   </tr>
   <tr>
-    <td>System::Array[,]</td>Matrix</td>
+    <td>System::Array[,]</td><td>Matrix</td>
   </tr>
   <tr>
-    <td>System::Object[,]</td>Cell</td>
+    <td>System::Object[,]</td><td>Cell</td>
   </tr>
 </table>
 
