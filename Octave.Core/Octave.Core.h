@@ -8,7 +8,9 @@
 #include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include "Array.h"
+#include "oct-map.h"
 #include "error.h"
+
 using namespace System;
 
 namespace OctaveCore {

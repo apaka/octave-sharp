@@ -95,6 +95,28 @@ O array_to_octave_matrix( array<T,2>^ matrix){
 		 }
 	 }else if(t==System::String::typeid){
 		 return msclr::interop::marshal_as<std::string>(static_cast<System::String^>(obj));
+	 }else if(t==System::Dynamic::ExpandoObject::typeid){
+
+
+		 auto eo= dynamic_cast<System::Collections::Generic::IDictionary<System::String^,System::Object^>^>(obj);
+
+		 Octave_map om;
+		 
+		 for each( System::Collections::Generic::KeyValuePair<System::String^,System::Object^>^ p in eo){
+
+         auto key= msclr::interop::marshal_as<std::string>(p->Key);
+
+		 auto val =object_to_octave_value(p->Value);
+
+		 om.assign(key,val);
+		 
+		 }
+
+		 return om;
+
+
+
+		 return msclr::interop::marshal_as<std::string>(static_cast<System::String^>(obj));
 	 }else{
 		 throw std::bad_typeid();
 	 }
@@ -102,8 +124,6 @@ O array_to_octave_matrix( array<T,2>^ matrix){
 
 octave_value_list object_to_octave_value_list(array<Object^>^ args){
 	octave_value_list oargs(args->Length);
-
-	
 
 	for (int i=0;i<args->Length;i++)
 	{
@@ -192,7 +212,22 @@ Object^ octave_value_to_object(const octave_value& value){
 			return ret;
 	}else if(value.is_string()){
 		return msclr::interop::marshal_as<String^>(value.string_value());
-	}else{
+	   }else if(value.is_map()){
+		  Octave_map om=value.map_value();
+		  System::Collections::Generic::IDictionary<System::String^,System::Object^>^ eo=
+			  gcnew System::Dynamic::ExpandoObject();
+
+		   for(auto i=om.begin();i!=om.end();i++){
+           auto key=msclr::interop::marshal_as<String^>((*i).first);
+
+		   auto val= octave_value_to_object((*i).second(0,0));
+
+		   eo->Add(key,val);
+		   }
+		   return eo;
+	}
+
+	else{
 		throw std::bad_typeid();
 	}
 }

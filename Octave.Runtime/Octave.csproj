@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OctaveConfiguration.cs" />
     <Compile Include="OctaveRuntimeException.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="OctaveArgumentException.cs" />
