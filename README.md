@@ -24,6 +24,9 @@ Gets the dynamic object which is used to interop with Octave. Any method called 
 
 ```c#
 double rnd= oi.rand()
+
+var day =oi.gmtime(oi.time()).yday;
+
 ```
 Controlling the number of return values.
 
@@ -42,37 +45,40 @@ Supported data types.
     <th>C#</th><th>Octave</th>
   </tr>
   <tr>
-    <td>System::Double</td><td>double</td>
+    <td>System.Double</td><td>double</td>
   </tr>
   <tr>
-    <td>System::Float</td><td>float</td>
+    <td>System.Float</td><td>float</td>
   </tr>
   <tr>
-    <td>System::(U)Int64</td><td>(u)int64</td>
+    <td>System.(U)Int64</td><td>(u)int64</td>
   </tr>
   <tr>
-    <td>System::(U)Int32</td><td>(u)int32</td>
+    <td>System.(U)Int32</td><td>(u)int32</td>
   </tr>
   <tr>
-    <td>System::(U)Int16</td><td>(u)int16</td>
+    <td>System.(U)Int16</td><td>(u)int16</td>
   </tr>
   <tr>
-    <td>System::SByte</td><td>int8</td>
+    <td>System.SByte</td><td>int8</td>
   </tr>
   <tr>
-    <td>System::Byte</td><td>uint8</td>
+    <td>System.Byte</td><td>uint8</td>
   </tr>
   <tr>
-    <td>System::Boolean</td><td>bool</td>
+    <td>System.Boolean</td><td>bool</td>
   </tr>
   <tr>
-    <td>System::String</td><td>string</td>
+    <td>System.String</td><td>string</td>
   </tr>
   <tr>
-    <td>System::Array[,]</td><td>Matrix</td>
+    <td>T[,]</td><td>Matrix</td>
   </tr>
   <tr>
-    <td>System::Object[,]</td><td>Cell</td>
+    <td>System.Object[,]</td><td>Cell</td>
+  </tr>
+  <tr>
+    <td>System.Dynamic.ExpandoObject</td><td>Struct</td>
   </tr>
 </table>
 
