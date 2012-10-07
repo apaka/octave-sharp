@@ -10,6 +10,7 @@ namespace Octave
 
         static Runtime()
         {
+           
             var args = new[]
                            {
                                "octave-sharp",
@@ -18,6 +19,11 @@ namespace Octave
                                "--no-init-file",
                                "--silent"
                            };
+
+            if (!string.IsNullOrWhiteSpace(OctaveConfiguration.Default.RuntimeArguments))
+            {
+                args = OctaveConfiguration.Default.RuntimeArguments.Split('\0');
+            }
 
             if (!OctaveCore.Octave.Main(args))
             {

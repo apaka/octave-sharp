@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Dynamic;
 using System.Reflection;
 
@@ -24,7 +23,7 @@ namespace Octave
                 }
                 catch (InvalidCastException)
                 {
-                    throw new OctaveArgumentException("Type of nargout argument  must be Int32", "nargout");
+                    throw new ArgumentException("Type of nargout argument  must be Int32", "nargout");
                 }
 
                 args1 = new object[args.Length - 1];
@@ -46,20 +45,26 @@ namespace Octave
                 }
             }
 
-           
 
-            
-           var status= OctaveCore.Octave.Feval(binder.Name, args1, nargout,out result);
+            var status = OctaveCore.Octave.Feval(binder.Name, args1, nargout, out result);
 
-            if (status != OctaveCore.Octave.FevalStatus.OK)
-            { 
-                 throw new OctaveRuntimeException(OctaveCore.Octave.GetLastError());
+            switch (status)
+            {
+                case OctaveCore.Octave.FevalStatus.OK:
+                    return true;
+                case OctaveCore.Octave.FevalStatus.Error:
+                    throw new OctaveRuntimeException(OctaveCore.Octave.GetLastError());
+                case OctaveCore.Octave.FevalStatus.BadArgument:
+                    throw new ArgumentException("Unsupported argument type", "args");
+                case OctaveCore.Octave.FevalStatus.BadReturn:
+                    throw new ArgumentException("Unsupported return type", "ret");
+                case OctaveCore.Octave.FevalStatus.BadAlloc:
+                    throw new OutOfMemoryException("Octave failed to allocate the required memory");
+                case OctaveCore.Octave.FevalStatus.Interupted:
+                    throw new OctaveRuntimeException("Octave interpreter was interrupted");
+                default:
+                    return false;
             }
-
-
-            return true;
-
-          
         }
     }
 }

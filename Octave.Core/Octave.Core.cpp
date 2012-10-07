@@ -22,8 +22,7 @@ bool OctaveCore::Octave::Main( array<System::String^>^ args )
 
 OctaveCore::Octave::FevalStatus OctaveCore::Octave::Feval( String^ name,array<Object^>^ args,int nargout, Object^% resault )
 {
-	System::Console::WriteLine("[{0}]= {1}({2})",nargout,name,args->Length);
-
+	
 	octave_value_list f_arg;
 	try{
 		 f_arg=object_to_octave_value_list(args);
@@ -33,6 +32,8 @@ OctaveCore::Octave::FevalStatus OctaveCore::Octave::Feval( String^ name,array<Ob
 	}
 
 	octave_value_list f_ret;
+
+	reset_error_handler();
 
 	try{
 		f_ret = feval (msclr::interop::marshal_as<std::string>(name), f_arg, nargout);
@@ -49,7 +50,6 @@ OctaveCore::Octave::FevalStatus OctaveCore::Octave::Feval( String^ name,array<Ob
 		return FevalStatus::Error;
 	}
 
-	Console::WriteLine("Args returned:{0}",f_ret.length());
 
 	try{
 		resault=octave_list_to_object(f_ret);}
