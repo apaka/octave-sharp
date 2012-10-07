@@ -15,7 +15,6 @@ Octave VS2010 libs in PATH
 How things work ,till now
 
 Install Octave VS2010 version for Windows. Git clone. Setup Octave.Core include libs path to Octave directory. Compile an poof.
-Add octave bin folder to your main app path and you are ready to go.
 
 ```c#
 dynamic oi = Octave.Runtime.GetIntepreter();
